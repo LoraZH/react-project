@@ -4,7 +4,7 @@ export default function Footer(){
     return (
         <>
         <footer className="bg-dark" id="tempaltemo_footer">
-  <div className="container">
+  <div className="p-4">
     <div className="row">
       <div className="col-md-4 pt-5">
         <h2 className="h2 text-success border-bottom pb-3 border-light logo">
@@ -117,7 +117,7 @@ export default function Footer(){
     </div>
   </div>
   <div className="w-100 bg-black py-3">
-    <div className="container">
+    <div className="p-4">
       <div className="row pt-2">
         <div className="col-12">
           <p className="text-left text-light">

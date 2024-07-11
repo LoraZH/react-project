@@ -4,7 +4,7 @@ export default function Login() {
   return (
     <div style={{width: "100%"}}>
     <form action="action_page.php" method="post">
-      <div className="container">
+      <div className="p-4">
         <label htmlFor="uname">
           <b>Email</b>
         </label>
@@ -27,7 +27,7 @@ export default function Login() {
        
 
       </div>
-      <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
+      <div className="p-4" style={{ backgroundColor: "#f1f1f1" }}>
       </div>
     </form>
     </div>

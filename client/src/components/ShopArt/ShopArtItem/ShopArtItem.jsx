@@ -42,9 +42,9 @@ export default function ShopArtItem({
         <i className="far fa-eye">
           <i className="fas fa-cart-plus">
             <div className="card-body">
-              <a href="/shop-single" className="h3 text-decoration-none">
+              <Link to={`/art/${_id}`} className="h3 text-decoration-none">
                 {title}
-              </a>
+              </Link>
               <p className="text-center mb-0">{`$${price}`}</p>
             </div>
             

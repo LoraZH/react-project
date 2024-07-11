@@ -1,7 +1,7 @@
 export default function Categories(){
     return(
         <>
-        <section className="container py-5">
+        <section className="py-5">
   <div className="row text-center pt-3">
     <div className="col-lg-6 m-auto">
       <h1 className="h1">Categories of The Month</h1>

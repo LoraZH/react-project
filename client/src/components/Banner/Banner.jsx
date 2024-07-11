@@ -17,7 +17,7 @@ export default function Banner(){
   </ol>
   <div className="carousel-inner">
     <div className="carousel-item active">
-      <div className="container">
+      <div className="p-4">
         <div className="row p-5">
           <div className="mx-auto col-md-8 col-lg-6 order-lg-last">
             <img

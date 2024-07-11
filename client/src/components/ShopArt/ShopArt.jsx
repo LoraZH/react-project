@@ -12,7 +12,7 @@ export default function Shop() {
   console.log(art);
   return (
     <>
-      <div className="container py-5">
+      <div className=" p-4 py-5">
         <div className="row">
           <div className="col-lg-3">
             <h1 className="h2 pb-4">Categories</h1>

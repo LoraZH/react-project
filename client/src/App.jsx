@@ -13,13 +13,15 @@ import Profile from './components/Profile/Profile'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import ShopArtItem from './components/ShopArt/ShopArtItem/ShopArtItem'
+import ArtDetails from './components/ArtDetails/ArtDetails'
 
 export default function App() {
 
   return (
     <>
-      <Navigation />
       <Header />
+      <Navigation />
+    
       {/* <Modal /> */}
       <Routes>
         <Route path='/' element={<Home/>} />
@@ -30,7 +32,7 @@ export default function App() {
         <Route path='/profile' element={<Profile/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
-        <Route path='/art/:id' element={<ShopArtItem/>} />
+        <Route path='/art/:id' element={<ArtDetails/>} />
       </Routes>
       <Footer />
     </>
