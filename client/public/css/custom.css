@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+.auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.auth form {
+    width: 100%;
+    max-width: 500px;
+}
+.auth input,
+.auth textarea,
+.auth select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.auth input[type="submit"] {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+}
+.auth input[type="submit"]:hover {
+    background-color: #555;
+}
