@@ -89,10 +89,9 @@ export default function Shop() {
           </div>
           <div className="col-lg-9">
             <div className="row">
-              {art.map(art => (
+            {art.map(art => (
                 <ShopArtItem key={art._id}{...art} />
               ))}
-
             </div>
             <div div="row">
               <ul className="pagination pagination-lg justify-content-end">
@@ -286,7 +285,9 @@ export default function Shop() {
           </div>
         </div>
       </section>
-      {/*End Brands*/}
+      {/*End Brands */}
+      
+      
 
     </>
   )

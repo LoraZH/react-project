@@ -14,6 +14,7 @@ import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import ShopArtItem from './components/ShopArt/ShopArtItem/ShopArtItem'
 import ArtDetails from './components/ArtDetails/ArtDetails'
+import Cart from './components/Cart/Cart'
 
 export default function App() {
 
@@ -33,6 +34,7 @@ export default function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/art/:id' element={<ArtDetails/>} />
+        <Route path='/cart' element={<Cart/>} />
       </Routes>
       <Footer />
     </>
