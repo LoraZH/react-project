@@ -10,7 +10,6 @@ export const getAll = async () => {
 
 export const getOne = async (artId) => {
     const result = await request.get(`${baseUrl}/${artId}`);
-
     return result;
 };
 

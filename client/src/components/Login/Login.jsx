@@ -16,18 +16,18 @@ export default function Login() {
   // }
   return (
     <div style={{width: "100%"}}>
-    <form action="action_page.php" method="post" onSubmit={formSubmitHandler}>
+    <form action="action_page.php" method="post" >
       <div className="p-4">
         <label htmlFor="email">
           <b>Email</b>
         </label>
-        <input type="text" placeholder="Enter Email" name="email" required="" />
+        <input type="text" placeholder="john_d@abv.bg" name="email" required="" />
         <label htmlFor="psw">
           <b>Password</b>
         </label>
         <input
           type="password"
-          placeholder="Enter Password"
+          placeholder="*********"
           name="psw"
           required=""
         />

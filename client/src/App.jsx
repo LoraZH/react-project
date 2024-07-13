@@ -33,7 +33,7 @@ export default function App() {
         <Route path='/profile' element={<Profile/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
-        <Route path='/art/:id' element={<ArtDetails/>} />
+        <Route path='/art/:artId' element={<ArtDetails/>} />
         <Route path='/cart' element={<Cart/>} />
       </Routes>
       <Footer />

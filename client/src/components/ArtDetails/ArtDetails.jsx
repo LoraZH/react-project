@@ -5,15 +5,17 @@ import * as ArtService from '../../services/ArtServices'
 export default function ArtDetails() {
     const [art, setArt] = useState({});
     const { artId } = useParams();
+    console.log(artId)
 
     useEffect(() => {
-        ArtService.getOne()
-            .then(setArt);
+        if (artId) {
+            ArtService.getOne(artId).then(setArt);
+        }
     }, [artId]);
 
     return (
         <section className="bg-light">
-            <div className="container pb-5">
+            <div className="pb-5">
                 <div className="row">
                     <div className="col-lg-5 mt-5">
                         <div className="card mb-3">

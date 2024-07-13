@@ -11,7 +11,7 @@ export default function Register(){
     </label>
     <input
       type="text"
-      placeholder="Enter Email"
+      placeholder="john_d@abv.bg"
       name="email"
       id="email"
       required=""
@@ -21,7 +21,7 @@ export default function Register(){
     </label>
     <input
       type="password"
-      placeholder="Enter Password"
+      placeholder="*********"
       name="psw"
       id="psw"
       required=""
@@ -31,7 +31,7 @@ export default function Register(){
     </label>
     <input
       type="password"
-      placeholder="Repeat Password"
+      placeholder="*********"
       name="psw-repeat"
       id="psw-repeat"
       required=""
