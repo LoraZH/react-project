@@ -23,7 +23,6 @@ export default function App() {
       <Header />
       <Navigation />
     
-      {/* <Modal /> */}
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/about' element={<About/>} />

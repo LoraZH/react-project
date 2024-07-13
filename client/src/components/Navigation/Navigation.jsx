@@ -3,7 +3,7 @@ export default function Navigation() {
     return (
           <>
           <nav className="navbar navbar-expand-lg navbar-light shadow">
-              <div className="p-5 d-flex justify-content-between align-items-center" style={{fontSize: '20px !important'}}>
+              <div className="p-5 d-flex justify-content-between align-items-center" style={{ fontSize: '32px' }}>
                   <a
                       className="navbar-brand text-success logo h1 align-self-center"
                       href="index.html"
@@ -23,10 +23,11 @@ export default function Navigation() {
                   </button>
                   <div
                       className="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                     
                       id="templatemo_main_nav"
                   >
                       <div className="flex-fill">
-                          <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                          <ul className="nav navbar-nav d-flex justify-content-between mx-5" >
                               <li className="nav-item">
                                   <Link className="nav-link" to="/">
                                       Home
@@ -79,7 +80,7 @@ export default function Navigation() {
                               </div>
                           </div>
                           
-                          <Link className="nav-icon position-relative text-decoration-none" to="cart">
+                          <Link className="nav-icon position-relative text-decoration-none mx-4" to="/cart">
                               <i className="fa fa-fw fa-cart-arrow-down text-dark mr-1" />
                               <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
                                   7

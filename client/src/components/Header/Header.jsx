@@ -7,22 +7,22 @@ export default function Header() {
             className="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block"
             id="templatemo_nav_top"
         >
-            <div className=" text-light" style={{fontSize: '29px !important'}}>
+            <div className=" text-light" >
                 <div className="w-100 d-flex justify-content-between">
                     <div>
-                        <i className="fa fa-envelope mx-2" />
+                        <i className="fa fa-envelope mx-4" />
                         <a
                             className="navbar-sm-brand text-light text-decoration-none"
-                            href="mailto:info@company.com"
+                            href="loraArtStore@gmail.com"
                         >
-                            info@company.com
+                            loraArtStore@gmail.com
                         </a>
-                        <i className="fa fa-phone mx-2" />
+                        <i className="fa fa-phone mx-4" />
                         <a
                             className="navbar-sm-brand text-light text-decoration-none"
-                            href="tel:010-020-0340"
+                            href="tel:+359 887 569 234"
                         >
-                            010-020-0340
+                            +359 887 569 234
                         </a>
                     </div>
                     <div>
@@ -32,24 +32,24 @@ export default function Header() {
                             target="_blank"
                             rel="sponsored"
                         >
-                            <i className="fab fa-facebook-f fa-sm fa-fw me-2" />
+                            <i className="fab fa-facebook-f fa-sm fa-fw me-3" />
                         </a>
                         <a
                             className="text-light"
                             href="https://www.instagram.com/"
                             target="_blank"
                         >
-                            <i className="fab fa-instagram fa-sm fa-fw me-2" />
+                            <i className="fab fa-instagram fa-sm fa-fw me-3" />
                         </a>
                         <a className="text-light" href="https://twitter.com/" target="_blank">
-                            <i className="fab fa-twitter fa-sm fa-fw me-2" />
+                            <i className="fab fa-twitter fa-sm fa-fw me-3" />
                         </a>
                         <a
                             className="text-light"
                             href="https://www.linkedin.com/"
                             target="_blank"
                         >
-                            <i className="fab fa-linkedin fa-sm fa-fw" />
+                            <i className="fab fa-linkedin fa-sm fa-fw me-3" />
                         </a>
                     </div>
                 </div>
