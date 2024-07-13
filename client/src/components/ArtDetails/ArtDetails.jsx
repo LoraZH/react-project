@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import * as ArtService from '../../services/ArtServices'
 
 export default function ArtDetails() {
     const [art, setArt] = useState({});
     const { artId } = useParams();
-    console.log(artId)
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (artId) {

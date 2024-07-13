@@ -12,9 +12,9 @@ import SellYourArt from './components/SellYourArt/SellYourArt'
 import Profile from './components/Profile/Profile'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
-import ShopArtItem from './components/ShopArt/ShopArtItem/ShopArtItem'
 import ArtDetails from './components/ArtDetails/ArtDetails'
 import Cart from './components/Cart/Cart'
+import NotFound from './components/NotFound/NotFound'
 
 export default function App() {
 
@@ -35,6 +35,7 @@ export default function App() {
         <Route path='/register' element={<Register/>} />
         <Route path='/art/:artId' element={<ArtDetails/>} />
         <Route path='/cart' element={<Cart/>} />
+        <Route path='*' element={<NotFound/>} />
       </Routes>
       <Footer />
     </>
