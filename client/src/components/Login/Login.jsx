@@ -1,17 +1,30 @@
-import useForm from '../../hooks/useForm';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
-export default function Login() {
-  const submitHandler = (values) => {
-    console.log('Form submitted with values:', values);
-  };
 
-  const { values, onChange, onSubmit } = useForm({ email: '', psw: '' }, submitHandler);
+const LoginFormKeys ={
+  Email: 'email',
+  Psw: 'psw'
+}
+export default function Login() {
+const [form, setForm] = useState({
+  [LoginFormKeys.Email]: '', 
+  [LoginFormKeys.Psw]: ''
+})
+
+function onChange(field, value) {
+   setForm({...form, [field]: value})
+}
+
+function onSubmit(e) {
+  e.preventDefault()
+  console.log(form)
+}
 
   return (
     <div style={{ width: "100%" }}>
-      <form action="action_page.php" method="post" onSubmit={onSubmit}>
+      <form action="action_page.php" method="post" onSubmit={(e) => onSubmit(e)}>
         <div className="p-4">
           <label htmlFor="email">
             <b>Email</b>
@@ -20,10 +33,10 @@ export default function Login() {
             type="text"
             placeholder="john_d@abv.bg"
             id="email"
-            name="email"
+            name={LoginFormKeys.Email}
             required=""
-            onChange={onChange}
-            value={values.email}
+            onChange={(e) => onChange('email', e.target.value)}
+            value={form[LoginFormKeys.Email]}
           />
           <label htmlFor="psw">
             <b>Password</b>
@@ -31,10 +44,10 @@ export default function Login() {
           <input
             type="password"
             placeholder="*********"
-            name="psw"
+            name={LoginFormKeys.Psw}
             required=""
-            onChange={onChange}
-            value={values.psw}
+            onChange={(e) => onChange('pass', e.target.value)}
+            value={form[LoginFormKeys.Psw]}
           />
           <button type="submit">Login</button>
           <div className="container signup">
@@ -48,3 +61,4 @@ export default function Login() {
     </div>
   );
 }
+

@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-
+import { useState } from 'react'
 import Navigation from "./components/Navigation/Navigation"
 import Home from './components/Home/Home'
 import Header from "./components/Header/Header"
@@ -17,7 +17,12 @@ import Cart from './components/Cart/Cart'
 import NotFound from './components/NotFound/NotFound'
 
 export default function App() {
+  const [auth, setAuth] = useState({});
 
+  const loginSubmitHandler = () => {
+
+    console.log(values)
+  }
   return (
     <>
       <Header />
@@ -30,7 +35,7 @@ export default function App() {
         <Route path='/contact' element={<Contacts/>} />
         <Route path='/sell' element={<SellYourArt/>} />
         <Route path='/profile' element={<Profile/>} />
-        <Route path='/login' element={<Login/>} />
+        <Route path='/login' element={<Login/>} loginSubmitHandler={loginSubmitHandler}/>
         <Route path='/register' element={<Register/>} />
         <Route path='/art/:artId' element={<ArtDetails/>} />
         <Route path='/cart' element={<Cart/>} />
