@@ -2,24 +2,18 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
-
-const LoginFormKeys ={
-  Email: 'email',
-  Psw: 'psw'
-}
 export default function Login() {
-const [form, setForm] = useState({
-  [LoginFormKeys.Email]: '', 
-  [LoginFormKeys.Psw]: ''
-})
+const [form, setForm] = useState({email: '', psw: ''}) // Creates the form initially empty
 
 function onChange(field, value) {
-   setForm({...form, [field]: value})
+  // Sets the new values in the form based on which field has been filled in
+  setForm({...form, [field]: value})
 }
 
 function onSubmit(e) {
+  // Submits the form
   e.preventDefault()
-  console.log(form)
+  loginSubmitHandler(form)
 }
 
   return (
@@ -33,10 +27,10 @@ function onSubmit(e) {
             type="text"
             placeholder="john_d@abv.bg"
             id="email"
-            name={LoginFormKeys.Email}
+            name="email"
             required=""
             onChange={(e) => onChange('email', e.target.value)}
-            value={form[LoginFormKeys.Email]}
+            value={form.email}
           />
           <label htmlFor="psw">
             <b>Password</b>
@@ -44,10 +38,10 @@ function onSubmit(e) {
           <input
             type="password"
             placeholder="*********"
-            name={LoginFormKeys.Psw}
+            name="psw"
             required=""
-            onChange={(e) => onChange('pass', e.target.value)}
-            value={form[LoginFormKeys.Psw]}
+            onChange={(e) => onChange('psw', e.target.value)}
+            value={form.psw}
           />
           <button type="submit">Login</button>
           <div className="container signup">
@@ -61,4 +55,3 @@ function onSubmit(e) {
     </div>
   );
 }
-
