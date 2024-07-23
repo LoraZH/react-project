@@ -3,15 +3,12 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 
 export default function Login() {
-const [form, setForm] = useState({email: '', psw: ''}) // Creates the form initially empty
-
+const [form, setForm] = useState({email: '', psw: ''}) 
 function onChange(field, value) {
-  // Sets the new values in the form based on which field has been filled in
-  setForm({...form, [field]: value})
+setForm({...form, [field]: value})
 }
 
 function onSubmit(e) {
-  // Submits the form
   e.preventDefault()
   loginSubmitHandler(form)
 }
