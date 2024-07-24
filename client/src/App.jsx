@@ -18,6 +18,7 @@ import Register from './components/Register/Register'
 import ArtDetails from './components/ArtDetails/ArtDetails'
 import Cart from './components/Cart/Cart'
 import NotFound from './components/NotFound/NotFound'
+import AuthContext from './contexts/authContext'
 
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
    console.log(values);
   }
   return (
+    <AuthContext.Provider value={{loginSubmitHandler}}>
     <>
       <Header />
       <Navigation />
@@ -40,7 +42,7 @@ export default function App() {
         <Route path='/contact' element={<Contacts/>} />
         <Route path='/sell' element={<SellYourArt/>} />
         <Route path='/profile' element={<Profile/>} />
-        <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler}/>}/>
+        <Route path='/login' element={<Login />}/>
         <Route path='/register' element={<Register/>} />
         <Route path='/art/:artId' element={<ArtDetails/>} />
         <Route path='/cart' element={<Cart/>} />
@@ -48,5 +50,6 @@ export default function App() {
       </Routes>
       <Footer />
     </>
+    </AuthContext.Provider>
   )
 }
