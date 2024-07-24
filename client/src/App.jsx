@@ -23,10 +23,10 @@ import NotFound from './components/NotFound/NotFound'
 export default function App() {
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = async (values) => {
-   const result = await authService.login(values.email, values.psw);
+  const loginSubmitHandler = (values) => {
+  //  const result = await authService.login(values.email, values.psw);
 
-   console.log(result);
+   console.log(values);
   }
   return (
     <>
@@ -40,7 +40,7 @@ export default function App() {
         <Route path='/contact' element={<Contacts/>} />
         <Route path='/sell' element={<SellYourArt/>} />
         <Route path='/profile' element={<Profile/>} />
-        <Route path='/login' element={<Login loginSubmit={loginSubmitHandler}/>}/>
+        <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler}/>}/>
         <Route path='/register' element={<Register/>} />
         <Route path='/art/:artId' element={<ArtDetails/>} />
         <Route path='/cart' element={<Cart/>} />

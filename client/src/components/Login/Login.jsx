@@ -1,21 +1,34 @@
+import useForm from '../../hooks/useForm';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
-export default function Login() {
-const [form, setForm] = useState({email: '', psw: ''}) 
-function onChange(field, value) {
-setForm({...form, [field]: value})
-}
 
-function onSubmit(e) {
-  e.preventDefault()
-  loginSubmitHandler(form)
-}
+const LoginFormKeys = {
+  Email: 'email',
+  Psw: 'psw'
+};
+
+export default function Login({loginSubmitHandler}) {
+  const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {
+    [LoginFormKeys.Email]: '',
+    [LoginFormKeys.Psw]: ''
+  });
+
+// const [form, setForm] = useState({email: '', psw: ''}) 
+
+// function onChange(field, value) {
+// setForm({...form, [field]: value})
+// }
+
+// function onSubmit(e) {
+//   e.preventDefault()
+//   loginSubmitHandler(form)
+// }
 
   return (
     <div style={{ width: "100%" }}>
-      <form action="action_page.php" method="post" onSubmit={(e) => onSubmit(e)}>
+      <form action="action_page.php" method="post" onSubmit={onSubmit}>
         <div className="p-4">
           <label htmlFor="email">
             <b>Email</b>
@@ -24,10 +37,10 @@ function onSubmit(e) {
             type="text"
             placeholder="john_d@abv.bg"
             id="email"
-            name="email"
+            name={LoginFormKeys.Email}
             required=""
-            onChange={(e) => onChange('email', e.target.value)}
-            value={form.email}
+            onChange={onChange}
+            value={values[LoginFormKeys.Email]}
           />
           <label htmlFor="psw">
             <b>Password</b>
@@ -35,10 +48,10 @@ function onSubmit(e) {
           <input
             type="password"
             placeholder="*********"
-            name="psw"
+            name={LoginFormKeys.Psw}
             required=""
-            onChange={(e) => onChange('psw', e.target.value)}
-            value={form.psw}
+            onChange={onChange}
+            value={values[LoginFormKeys.Psw]}
           />
           <button type="submit">Login</button>
           <div className="container signup">
