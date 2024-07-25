@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 import * as authService from './services/authService'
@@ -19,16 +19,21 @@ import ArtDetails from './components/ArtDetails/ArtDetails'
 import Cart from './components/Cart/Cart'
 import NotFound from './components/NotFound/NotFound'
 import AuthContext from './contexts/authContext'
+import Path from './paths'
 
 
 export default function App() {
+  const navigate = useNavigate();
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = (values) => {
-  //  const result = await authService.login(values.email, values.psw);
+  const loginSubmitHandler = async (values) => {
+  const result = await authService.login(values.email, values.psw);
 
-   console.log(values);
-  }
+  setAuth(result);
+  navigate(Path.Home);
+  };
+
+
   return (
     <AuthContext.Provider value={{loginSubmitHandler}}>
     <>
