@@ -27,14 +27,19 @@ export default function App() {
   const [auth, setAuth] = useState({});
 
   const loginSubmitHandler = async (values) => {
-  const result = await authService.login(values.email, values.psw);
+    const result = await authService.login(values.email, values.psw);
 
-  setAuth(result);
-  navigate(Path.Home);
+    setAuth(result);
+    navigate(Path.Home);
   };
+
+  const registerSubmitHandler = async (values) => {
+    console.log(values);
+  }
 
   const values = {
     loginSubmitHandler,
+    registerSubmitHandler,
     username: auth.username,
     email: auth.email,
     isAuthenticated: !!auth.username,
@@ -42,25 +47,25 @@ export default function App() {
 
   return (
     <AuthContext.Provider value={values}>
-    <>
-      <Header />
-      <Navigation />
-    
-      <Routes>
-        <Route path={Path.Home} element={<Home/>} />
-        <Route path='/about' element={<About/>} />
-        <Route path='/shop' element={<Shop/>} />
-        <Route path='/contact' element={<Contacts/>} />
-        <Route path='/sell' element={<SellYourArt/>} />
-        <Route path='/profile' element={<Profile/>} />
-        <Route path='/login' element={<Login />}/>
-        <Route path='/register' element={<Register/>} />
-        <Route path='/art/:artId' element={<ArtDetails/>} />
-        <Route path='/cart' element={<Cart/>} />
-        <Route path='*' element={<NotFound/>} />
-      </Routes>
-      <Footer />
-    </>
+      <>
+        <Header />
+        <Navigation />
+
+        <Routes>
+          <Route path={Path.Home} element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/shop' element={<Shop />} />
+          <Route path='/contact' element={<Contacts />} />
+          <Route path='/sell' element={<SellYourArt />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/art/:artId' element={<ArtDetails />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </>
     </AuthContext.Provider>
   )
 }
