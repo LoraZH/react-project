@@ -1,5 +1,12 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import AuthContext from "../../contexts/authContext"
 export default function Navigation() {
+    const {
+        isAuthenticated,
+        username,
+    } = useContext(AuthContext);
+
     return (
           <>
           <nav className="navbar navbar-expand-lg navbar-light shadow">
@@ -43,11 +50,16 @@ export default function Navigation() {
                                       Shop Art
                                   </Link>
                               </li>
-                              <li className="nav-item">
-                              <Link className="nav-link" to="/sell">
-                                      Sell Yor Art
-                                  </Link>
-                              </li>
+                              {isAuthenticated && (
+                                <li className="nav-item">
+                                <Link className="nav-link" to="/sell">
+                                        Sell Yor Art
+                                </Link>
+                                <Link className="nav-link" to="/logout">
+                                     Logout
+                                 </Link>
+                             </li>
+                              )}
                               <li className="nav-item">
                                   <Link className="nav-link" to="/contact">
                                       Contact

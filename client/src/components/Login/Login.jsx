@@ -18,16 +18,6 @@ export default function Login() {
     [LoginFormKeys.Psw]: ''
   });
 
-// const [form, setForm] = useState({email: '', psw: ''}) 
-
-// function onChange(field, value) {
-// setForm({...form, [field]: value})
-// }
-
-// function onSubmit(e) {
-//   e.preventDefault()
-//   loginSubmitHandler(form)
-// }
 
   return (
     <div style={{ width: "100%" }}>

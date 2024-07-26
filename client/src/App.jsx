@@ -33,15 +33,21 @@ export default function App() {
   navigate(Path.Home);
   };
 
+  const values = {
+    loginSubmitHandler,
+    username: auth.username,
+    email: auth.email,
+    isAuthenticated: !!auth.username,
+  }
 
   return (
-    <AuthContext.Provider value={{loginSubmitHandler}}>
+    <AuthContext.Provider value={values}>
     <>
       <Header />
       <Navigation />
     
       <Routes>
-        <Route path='/' element={<Home/>} />
+        <Route path={Path.Home} element={<Home/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/shop' element={<Shop/>} />
         <Route path='/contact' element={<Contacts/>} />

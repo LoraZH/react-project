@@ -7,7 +7,7 @@ export default function Profile(){
                     <div className="col-lg-6 m-auto">
                         <img src="/img/profile.jpg" alt="profilePic" className="rounded-circle w-50 img-fluid border" />
                         <p className="mt-3">
-                        
+                      
                         </p>
                     </div>
                 </div>
