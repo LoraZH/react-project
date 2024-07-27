@@ -29,11 +29,11 @@ export default function Banner(){
           <div className="col-lg-6 mb-0 d-flex align-items-center">
             <div className="text-align-left align-self-center">
               <h1 className="h1 text-success">
-                <b>Lora's art</b> store
+                <b>Lora's art</b> shop
               </h1>
               <h3 className="h2">Welcome to Lora's Art Store!</h3>
               <p>
-              At Lora's Art Store, creativity knows no bounds. Our platform is dedicated to artists and art lovers alike, offering a unique space where you can showcase, sell, and discover original artwork.
+              At Lora's Art Shop, creativity knows no bounds. Our platform is dedicated to artists and art lovers alike, offering a unique space where you can showcase, sell, and discover original artwork.
               
               </p>
             </div>

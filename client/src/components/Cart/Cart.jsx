@@ -1,3 +1,5 @@
 export default function Cart(){
-    <>Cart</>
+    <>
+    <h1>Cart</h1>
+    </>
 }
