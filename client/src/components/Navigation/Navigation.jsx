@@ -11,7 +11,7 @@ export default function Navigation() {
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light shadow">
-                <div className="p-5 d-flex justify-content-between align-items-center" style={{ fontSize: '32px' }}>
+                <div className="p-2 d-flex justify-content-between align-items-center" >
                     <a
                         className="navbar-brand text-success logo h1 align-self-center"
                         href="index.html"
@@ -35,7 +35,7 @@ export default function Navigation() {
                         id="templatemo_main_nav"
                     >
                         <div className="flex-fill">
-                            <ul className="nav navbar-nav d-flex justify-content-between mx-5" >
+                            <ul className="nav navbar-nav d-flex justify-content-between mx-1" >
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/">
                                         Home

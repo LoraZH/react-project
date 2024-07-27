@@ -21,9 +21,9 @@ export default function SellYourArt(){
 
 }
     return(
-          <section id="sell-art-page" className="auth">
+          <section id="sell-art-page" className="auth" >
             <form id="sell-art" onSubmit={sellArtHandler}>
-              <div className="p-4">
+              <div>
                 <h1>Sell Your Art</h1>
                 <label htmlFor="title">Art Title:</label>
                 <input type="text" id="title" name="title" placeholder="Enter art title..." required />
