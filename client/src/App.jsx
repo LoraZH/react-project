@@ -20,6 +20,7 @@ import Cart from './components/Cart/Cart'
 import NotFound from './components/NotFound/NotFound'
 import AuthContext from './contexts/authContext'
 import Path from './paths'
+import Logout from './components/Logout/Logout'
 
 
 export default function App() {
@@ -39,10 +40,15 @@ export default function App() {
     setAuth(result);
     navigate(Path.Home);
   }
+  const logoutHandler = () => {
+    setAuth({});
+
+  }
 
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
+    loginSubmitHandler,
     username: auth.username || auth.email,
     email: auth.email,
     isAuthenticated: !!auth.email,
@@ -65,6 +71,7 @@ export default function App() {
           <Route path='/register' element={<Register />} />
           <Route path='/art/:artId' element={<ArtDetails />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path={Path.Logout} element={< Logout />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />

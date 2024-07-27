@@ -1,4 +1,4 @@
-//to do profile picture
+
 export default function Profile(){
     return(
         <section className="bg-light">
