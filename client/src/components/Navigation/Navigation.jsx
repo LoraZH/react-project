@@ -51,6 +51,11 @@ export default function Navigation() {
                                         Shop Art
                                     </Link>
                                 </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/contact">
+                                        Contact
+                                    </Link>
+                                </li>
                                 {isAuthenticated && (
                                     <li className="nav-item">
                                         <Link className="nav-link" to="/sell">
@@ -61,7 +66,8 @@ export default function Navigation() {
                                         </Link>
                                         <Link className="nav-icon position-relative text-decoration-none" to="/profile">
                                             <i className="fa fa-fw fa-user text-dark mr-3" />
-                                            <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
+                                            <span className="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark" >
+                                               {username}
                                             </span>
                                         </Link>
                                     </li>
@@ -77,11 +83,7 @@ export default function Navigation() {
                                         </Link>
                                     </li>
                                 )}
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/contact">
-                                        Contact
-                                    </Link>
-                                </li>
+                                
                             </ul>
                         </div>
                         <div className="navbar align-self-center d-flex">
