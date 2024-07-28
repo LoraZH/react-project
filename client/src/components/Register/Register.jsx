@@ -29,7 +29,6 @@ export default function Register() {
   return (
     <form onSubmit={onSubmit}>
       <div className="p-4">
-        <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
         <hr />
         {error && <p style={{ color: 'red' }}>{error}</p>}

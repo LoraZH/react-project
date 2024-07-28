@@ -21,7 +21,14 @@ export default function ShopArtItem({
                   />
                   <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                     <ul className="list-unstyled">
-                      
+                      <li>
+                        <a
+                          className="btn btn-success text-white"
+                          href="/"
+                        >
+                          <i className="far fa-heart" />
+                        </a>
+                      </li>
                       <li>
                       <Link 
                           className="btn btn-success text-white mt-2"
