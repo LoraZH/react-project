@@ -1,69 +1,52 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-.container {
-    width: 80%;
-    margin: 0 auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-h1 {
-    text-align: center;
-    margin: 20px 0;
-}
-.auth {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-.auth form {
+#sell-art-page {
     width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-}
-.auth input,
-.auth textarea,
-.auth select {
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f9f9f9; /* Optional: to differentiate the section background */
+  }
+  
+  #sell-art {
+    width: 100%;
+    max-width: 100%;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  
+  #sell-art h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #sell-art label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  #sell-art input,
+  #sell-art select,
+  #sell-art textarea {
     width: 100%;
     padding: 10px;
-    margin: 10px 0;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-}
-.auth input[type="submit"] {
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  #sell-art .btn.submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
     border: none;
-}
-.auth input[type="submit"]:hover {
-    background-color: #555;
-}
-
-/* Media query for large screens */
-@media (min-width: 768px) {
-    .auth form {
-        max-width: 1000px;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    .auth form .p-2 {
-        flex: 1 1 calc(50% - 20px);
-        margin: 10px;
-    }
-    .auth form .full-width {
-        flex: 1 1 100%;
-    }
-    .auth input[type="submit"] {
-        width: auto;
-        align-self: flex-end;
-    }
-}
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #sell-art .btn.submit:hover {
+    background-color: #218838;
+  }
+  

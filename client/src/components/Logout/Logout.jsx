@@ -13,7 +13,7 @@ export default function Logout(){
         .then(() => {
             logoutHandler();
             navigate(Path.Home)
-    })
+        })
         .catch(() => navigate(Path.Home));
     }, []);
 

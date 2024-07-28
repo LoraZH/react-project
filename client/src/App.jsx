@@ -31,24 +31,28 @@ export default function App() {
     const result = await authService.login(values.email, values.psw);
 
     setAuth(result);
-    navigate(Path.Home);
+    // localStorage.setItem('accessToken', result.accessToken);   
+     navigate(Path.Home);
   };
 
   const registerSubmitHandler = async (values) => {
     const result = await authService.register(values.email, values.psw);
 
     setAuth(result);
+    // localStorage.setItem('accessToken', result.accessToken);
     navigate(Path.Home);
   }
+
   const logoutHandler = () => {
     setAuth({});
+    // localStorage.removeItem('accessToken');
 
   }
 
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
-    loginSubmitHandler,
+    logoutHandler,
     username: auth.username || auth.email,
     email: auth.email,
     isAuthenticated: !!auth.email,
