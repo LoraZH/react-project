@@ -2,6 +2,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 import * as authService from './services/authService'
+import AuthContext from './contexts/authContext'
 
 import Navigation from "./components/Navigation/Navigation"
 import Home from './components/Home/Home'
@@ -18,9 +19,9 @@ import Register from './components/Register/Register'
 import ArtDetails from './components/ArtDetails/ArtDetails'
 import Cart from './components/Cart/Cart'
 import NotFound from './components/NotFound/NotFound'
-import AuthContext from './contexts/authContext'
 import Path from './paths'
 import Logout from './components/Logout/Logout'
+
 
 
 export default function App() {
@@ -28,25 +29,30 @@ export default function App() {
   const [auth, setAuth] = useState({});
 
   const loginSubmitHandler = async (values) => {
-    const result = await authService.login(values.email, values.psw);
-
-    setAuth(result);
-    // localStorage.setItem('accessToken', result.accessToken);   
-     navigate(Path.Home);
+    try {
+      const result = await authService.login(values.email, values.password);
+      setAuth(result);
+      localStorage.setItem('accessToken', result.accessToken);
+      navigate(Path.Home);
+    } catch (error) {
+      console.error('Login error:', error);
+       }
   };
 
   const registerSubmitHandler = async (values) => {
-    const result = await authService.register(values.email, values.psw);
-
-    setAuth(result);
-    // localStorage.setItem('accessToken', result.accessToken);
-    navigate(Path.Home);
+    try {
+      const result = await authService.register(values.email, values.password);
+      setAuth(result);
+      localStorage.setItem('accessToken', result.accessToken);
+      navigate(Path.Home);
+    } catch (error) {
+      console.error('Register error:', error);
+     }
   }
 
   const logoutHandler = () => {
     setAuth({});
-    // localStorage.removeItem('accessToken');
-
+    localStorage.removeItem('accessToken');
   }
 
   const values = {
@@ -57,6 +63,7 @@ export default function App() {
     email: auth.email,
     isAuthenticated: !!auth.email,
   }
+
 
   return (
     <AuthContext.Provider value={values}>

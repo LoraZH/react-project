@@ -1,23 +1,23 @@
 
 import * as request from '../lib/request';
 
-const baseUrl = 'http://localhost:3030/jsonstore/users';
+const baseUrl = 'http://localhost:3030/users';
 
-export const login = async (email, psw) => {
+export const login = async (email,password) => {
     const result = await request.post(`${baseUrl}/login`,{
         email,
-        psw
+        password
     });
 
     return result;
 };
 
-export const register = (email, psw) =>  
+export const register = (email, password) =>  
       request.post(`${baseUrl}/register`,{
         email,
-        psw
+        password
     });
 
 
-export const logout = (email, psw) =>  
+export const logout = (email, password) =>  
         request.get(`${baseUrl}/logout`);    

@@ -7,22 +7,25 @@ import AuthContext from '../../contexts/authContext';
 
 const LoginFormKeys = {
   Email: 'email',
-  Psw: 'psw'
+  Password: 'password'
 };
 
 
 export default function Login() {
-  const {loginSubmitHandler} = useContext(AuthContext);
+  const { loginSubmitHandler } = useContext(AuthContext);
 
-  const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {
+  const { values, onChange, onSubmit } = useForm(loginSubmitHandler, {
     [LoginFormKeys.Email]: '',
-    [LoginFormKeys.Psw]: ''
+    [LoginFormKeys.password]: ''
   });
 
 
   return (
     <div style={{ width: "100%" }}>
-      <form action="action_page.php" method="post" onSubmit={onSubmit}>
+      <form
+        action="action_page.php"
+        method="post"
+        onSubmit={onSubmit}>
         <div className="p-4">
           <label htmlFor="email">
             <b>Email</b>
@@ -36,16 +39,16 @@ export default function Login() {
             onChange={onChange}
             value={values[LoginFormKeys.Email]}
           />
-          <label htmlFor="psw">
+          <label htmlFor="password">
             <b>Password</b>
           </label>
           <input
             type="password"
             placeholder="*********"
-            name={LoginFormKeys.Psw}
+            name={LoginFormKeys.Password}
             required=""
             onChange={onChange}
-            value={values[LoginFormKeys.Psw]}
+            value={values[LoginFormKeys.Password]}
           />
           <button type="submit">Login</button>
           <div className="container signup">

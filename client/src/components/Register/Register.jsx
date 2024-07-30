@@ -5,8 +5,8 @@ import useForm from '../../hooks/useForm'
 
 const RegisterFormKeys = {
   Email: 'email',
-  Psw: 'psw',
-  PswConfirm: 'psw-repeat'
+  password: 'password',
+  passwordConfirm: 'password-repeat'
 }
 
 export default function Register() {
@@ -14,7 +14,7 @@ export default function Register() {
   const [error, setError] = useState('');
   
   const { values, onChange, onSubmit } = useForm((values) => {
-    if (values[RegisterFormKeys.Psw] !== values[RegisterFormKeys.PswConfirm]) {
+    if (values[RegisterFormKeys.password] !== values[RegisterFormKeys.passwordConfirm]) {
       setError('Passwords do not match');
     } else {
       setError('');
@@ -22,8 +22,8 @@ export default function Register() {
     }
   }, {
     [RegisterFormKeys.Email]: '',
-    [RegisterFormKeys.Psw]: '',
-    [RegisterFormKeys.PswConfirm]: '',
+    [RegisterFormKeys.password]: '',
+    [RegisterFormKeys.passwordConfirm]: '',
   });
 
   return (
@@ -44,29 +44,29 @@ export default function Register() {
           onChange={onChange}
           value={values[RegisterFormKeys.Email]}
         />
-        <label htmlFor="psw">
+        <label htmlFor="password">
           <b>Password</b>
         </label>
         <input
           type="password"
           placeholder="*********"
-          name="psw"
-          id="psw"
+          name="password"
+          id="password"
           required
           onChange={onChange}
-          value={values[RegisterFormKeys.Psw]}
+          value={values[RegisterFormKeys.password]}
         />
-        <label htmlFor="psw-repeat">
+        <label htmlFor="password-repeat">
           <b>Repeat Password</b>
         </label>
         <input
           type="password"
           placeholder="*********"
-          name="psw-repeat"
-          id="psw-repeat"
+          name="password-repeat"
+          id="password-repeat"
           required
           onChange={onChange}
-          value={values[RegisterFormKeys.PswConfirm]}
+          value={values[RegisterFormKeys.passwordConfirm]}
         />
         <hr />
         <button type="submit" className="registerbtn">
