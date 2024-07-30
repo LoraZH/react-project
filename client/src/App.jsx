@@ -2,12 +2,11 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 import * as authService from './services/authService'
-import AuthContext from './contexts/authContext'
+import {AuthProvider} from './contexts/authContext'
 
 import Navigation from "./components/Navigation/Navigation"
 import Home from './components/Home/Home'
 import Header from "./components/Header/Header"
-import Modal from "./components/Modal/Modal"
 import Footer from "./components/Footer/Footer"
 import About from './components/About/About'
 import Shop from './components/ShopArt/ShopArt'
@@ -69,7 +68,7 @@ export default function App() {
 
 
   return (
-    <AuthContext.Provider value={values}>
+    <AuthProvider value={values}>
       <>
         <Header />
         <Navigation />
@@ -90,6 +89,6 @@ export default function App() {
         </Routes>
         <Footer />
       </>
-    </AuthContext.Provider>
+    </AuthProvider>
   )
 }
