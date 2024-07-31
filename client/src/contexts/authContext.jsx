@@ -48,6 +48,7 @@ import Path from "../paths";
       logoutHandler,
       username: auth.username || auth.email,
       email: auth.email,
+      userId: auth._id,
       isAuthenticated: !!auth.email,
     }
   

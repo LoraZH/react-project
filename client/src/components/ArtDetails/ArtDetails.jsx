@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import * as ArtService from '../../services/ArtServices'
+import AuthContext from "../../contexts/authContext";
 
 export default function ArtDetails() {
+    const {email, userId} = useContext(AuthContext);
     const [art, setArt] = useState({});
     const { artId } = useParams();
     const navigate = useNavigate();
@@ -12,6 +14,9 @@ export default function ArtDetails() {
             ArtService.getOne(artId).then(setArt);
         }
     }, [artId]);
+
+    const isOwner = userId  === art._ownerId;
+    
 
     return (
         <section className="bg-light">
@@ -38,7 +43,7 @@ export default function ArtDetails() {
                                     </li>
                                     <li className="list-inline-item">
                                         <p className="text-muted">
-                                            <strong>to add owner</strong>
+                                            <strong>{}</strong>
                                         </p>
                                     </li>
                                 </ul>
@@ -50,7 +55,40 @@ export default function ArtDetails() {
                                 <p>
                                     {art.description}
                                 </p>
-                                <form action="" method="GET">
+
+                                {isOwner && (
+                                    <form action="" method="GET">
+                                    <input
+                                        type="hidden"
+                                        name="product-title"
+                                        defaultValue="Activewear"
+                                    />
+                                    <div className="row pb-3">
+                                        <div className="col d-grid">
+                                            <button
+                                                type="submit"
+                                                className="btn btn-success btn-lg"
+                                                name="submit"
+                                                value="buy"
+                                            >
+                                                Edit
+                                            </button>
+                                        </div>
+                                        <div className="col d-grid">
+                                            <button
+                                                type="submit"
+                                                className="btn btn-success btn-lg"
+                                                name="submit"
+                                                value="addtocard"
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                )}
+                                {!isOwner && (
+                                    <form action="" method="GET">
                                     <input
                                         type="hidden"
                                         name="product-title"
@@ -79,6 +117,8 @@ export default function ArtDetails() {
                                         </div>
                                     </div>
                                 </form>
+                                )}
+                                
                             </div>
                         </div>
                     </div>
