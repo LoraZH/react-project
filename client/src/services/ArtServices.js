@@ -17,3 +17,8 @@ export const sell = async (artData) => {
     const result = await request.post(baseUrl, artData);;
     return result;
 };
+
+export const edit = async (artId, artData) => {
+    const result = await request.put(`${baseUrl}/${artId}`, artData);;
+    return result;
+};

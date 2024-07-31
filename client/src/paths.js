@@ -1,6 +1,8 @@
+
 const Path =  {
     Home: '/',
-    Logout: '/logout'
+    Logout: '/logout',
+    EditArt: '/art/:artId/edit',
 }
 
 export default Path;

@@ -14,7 +14,6 @@ export default function SellYourArt() {
       await ArtService.sell(artData);
       navigate('/shop');
     } catch (err) {
-      // Error notification
       console.log(err);
     }
   };

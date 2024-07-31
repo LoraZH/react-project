@@ -1,7 +1,5 @@
-import { Routes, Route, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { Routes, Route,  } from 'react-router-dom'
 
-import * as authService from './services/authService'
 import {AuthProvider} from './contexts/authContext'
 
 import Navigation from "./components/Navigation/Navigation"
@@ -20,6 +18,7 @@ import Cart from './components/Cart/Cart'
 import NotFound from './components/NotFound/NotFound'
 import Path from './paths'
 import Logout from './components/Logout/Logout'
+import EditArt from './components/ShopArt/ShopArtItem/EditArt'
 
 
 
@@ -41,6 +40,7 @@ export default function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/art/:artId' element={<ArtDetails />} />
+          <Route path={Path.EditArt} element={<EditArt />}/>
           <Route path='/cart' element={<Cart />} />
           <Route path={Path.Logout} element={< Logout />} />
           <Route path='*' element={<NotFound />} />
