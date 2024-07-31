@@ -20,6 +20,7 @@ export default function ArtDetails() {
 
     const isOwner = userId === art._ownerId;
 
+   
     return (
         <section className="bg-light">
             <div className="pb-5">

@@ -19,12 +19,14 @@ import NotFound from './components/NotFound/NotFound'
 import Path from './paths'
 import Logout from './components/Logout/Logout'
 import EditArt from './components/ShopArt/ShopArtItem/EditArt'
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 
 
 
 export default function App() {
   
   return (
+    <ErrorBoundary >
     <AuthProvider>
       <>
         <Header />
@@ -48,5 +50,6 @@ export default function App() {
         <Footer />
       </>
     </AuthProvider>
+    </ErrorBoundary>
   )
 }
