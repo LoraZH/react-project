@@ -20,6 +20,7 @@ import Path from './paths'
 import Logout from './components/Logout/Logout'
 import EditArt from './components/ShopArt/ShopArtItem/EditArt'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
+import AuthGuard from './guards/AuthGuard'
 
 
 
@@ -37,8 +38,8 @@ export default function App() {
           <Route path='/about' element={<About />} />
           <Route path='/shop' element={<Shop />} />
           <Route path='/contact' element={<Contacts />} />
-          <Route path='/sell' element={<SellYourArt />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/sell' element={<AuthGuard> <SellYourArt /> </AuthGuard>} />
+          <Route path='/profile' element={<AuthGuard> <Profile /> </AuthGuard>} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/art/:artId' element={<ArtDetails />} />
