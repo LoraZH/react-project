@@ -38,15 +38,21 @@ export default function App() {
           <Route path='/about' element={<About />} />
           <Route path='/shop' element={<Shop />} />
           <Route path='/contact' element={<Contacts />} />
-          <Route path='/sell' element={<AuthGuard> <SellYourArt /> </AuthGuard>} />
-          <Route path='/profile' element={<AuthGuard> <Profile /> </AuthGuard>} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/art/:artId' element={<ArtDetails />} />
-          <Route path={Path.EditArt} element={ <AuthGuard> <EditArt/></AuthGuard>}/>
           <Route path='/cart' element={<Cart />} />
           <Route path={Path.Logout} element={< Logout />} />
           <Route path='*' element={<NotFound />} />
+
+
+          <Route element={<AuthGuard />}>
+          <Route path='/sell' element={<SellYourArt />}/>
+          <Route path='/profile' element={ <Profile />}/>
+          <Route path={Path.EditArt} element={<EditArt/>}/>
+          </Route>
+
+
         </Routes>
         <Footer />
       </>
