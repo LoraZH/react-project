@@ -20,6 +20,16 @@ export default function ArtDetails() {
 
     const isOwner = userId === art._ownerId;
 
+    const deleteButtonClickHandler = async () => {
+        const hasConfirmed = confirm(`Are you sure you want to delete ${art.title}`);
+
+        if(hasConfirmed) {
+             await ArtService.remove(artId);
+
+             navigate('/shop')
+        }
+    }
+
    
     return (
         <section className="bg-light">
@@ -67,9 +77,7 @@ export default function ArtDetails() {
                                      </Link>
                                  </div>
                                  <div className="col d-grid">
-                                 <Link to={`art/:artId/delete`} className="btn btn-success btn-lg same-size-button">
-                                         Delete
-                                     </Link>
+                                 <button className="button" onClick={deleteButtonClickHandler}> Delete </button>
                                  </div>
                              </div>
                              

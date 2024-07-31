@@ -22,3 +22,7 @@ export const edit = async (artId, artData) => {
     const result = await request.put(`${baseUrl}/${artId}`, artData);;
     return result;
 };
+export const remove = async (artId) => {
+    const result = await request.remove(`${baseUrl}/${artId}`);;
+    return result;
+};
