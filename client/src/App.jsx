@@ -43,7 +43,7 @@ export default function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/art/:artId' element={<ArtDetails />} />
-          <Route path={Path.EditArt} element={<EditArt />}/>
+          <Route path={Path.EditArt} element={ <AuthGuard> <EditArt/></AuthGuard>}/>
           <Route path='/cart' element={<Cart />} />
           <Route path={Path.Logout} element={< Logout />} />
           <Route path='*' element={<NotFound />} />
