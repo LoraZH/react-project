@@ -15,7 +15,6 @@ export default function Shop() {
     <>
       <div className="p-4 py-5">
         <div className="row">
-          <Categories />
           <div className="col-lg-9">
             <div className="row">
               {art.map(artItem => (

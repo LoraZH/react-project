@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import * as ArtService from '../../services/ArtServices'
+import * as ArtService from '../../services/ArtServices';
 import AuthContext from "../../contexts/authContext";
 import { pathToUrl } from "../../utils/pathUtils";
 import Path from "../../paths";
@@ -23,14 +23,12 @@ export default function ArtDetails() {
     const deleteButtonClickHandler = async () => {
         const hasConfirmed = confirm(`Are you sure you want to delete ${art.title}`);
 
-        if(hasConfirmed) {
-             await ArtService.remove(artId);
-
-             navigate('/shop')
+        if (hasConfirmed) {
+            await ArtService.remove(artId);
+            navigate('/shop');
         }
-    }
+    };
 
-   
     return (
         <section className="bg-light">
             <div className="pb-5">
@@ -56,31 +54,26 @@ export default function ArtDetails() {
                                     </li>
                                     <li className="list-inline-item">
                                         <p className="text-muted">
-                                            <strong>{ }</strong>
+                                            <strong>{art.username}</strong>
                                         </p>
                                     </li>
                                 </ul>
                                 <h6>Categories:</h6>
-                                <p>
-                                    {art.category}
-                                </p>
+                                <p>{art.category}</p>
                                 <h6>Description:</h6>
-                                <p>
-                                    {art.description}
-                                </p>
+                                <p>{art.description}</p>
 
                                 {isOwner && (
-                                 <div className="row pb-3">
-                                 <div className="col d-grid">
-                                     <Link to={pathToUrl(Path.EditArt, {artId})} className="btn btn-success btn-lg same-size-button">
-                                         Edit
-                                     </Link>
-                                 </div>
-                                 <div className="col d-grid">
-                                 <button className="button" onClick={deleteButtonClickHandler}> Delete </button>
-                                 </div>
-                             </div>
-                             
+                                    <div className="row pb-3">
+                                        <div className="col d-grid">
+                                            <Link to={pathToUrl(Path.EditArt, { artId })} className="btn btn-success btn-lg same-size-button">
+                                                Edit
+                                            </Link>
+                                        </div>
+                                        <div className="col d-grid">
+                                            <button className="button" onClick={deleteButtonClickHandler}>Delete</button>
+                                        </div>
+                                    </div>
                                 )}
 
                                 {!isOwner && (
@@ -106,7 +99,7 @@ export default function ArtDetails() {
                                                     type="submit"
                                                     className="btn btn-success btn-lg"
                                                     name="submit"
-                                                    value="addtocard"
+                                                    value="addtocart"
                                                 >
                                                     Add To Cart
                                                 </button>
@@ -121,7 +114,5 @@ export default function ArtDetails() {
                 </div>
             </div>
         </section>
-
-
-    )
+    );
 }
