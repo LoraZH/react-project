@@ -21,11 +21,11 @@ import Logout from './components/Logout/Logout'
 import EditArt from './components/ShopArt/ShopArtItem/EditArt'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 import AuthGuard from './guards/AuthGuard'
+import { useState } from 'react'
 
 
 
 export default function App() {
-  
   return (
     <ErrorBoundary >
     <AuthProvider>
