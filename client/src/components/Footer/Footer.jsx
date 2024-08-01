@@ -34,10 +34,10 @@ export default function Footer(){
           Products
         </h2>
         <ul className="list-unstyled text-light footer-link-list">
-          <li>
-            <a className="text-decoration-none" href="#">
-              Luxury
-            </a>
+        <li>
+            <Link className="text-decoration-none" to="shop">
+              Shop Art
+            </Link>
           </li>
         </ul>
       </div>
@@ -54,11 +54,6 @@ export default function Footer(){
           <li>
             <Link className="text-decoration-none" to="about">
               About Us
-            </Link>
-          </li>
-          <li>
-            <Link className="text-decoration-none" to="shop">
-              Shop Art
             </Link>
           </li>
           <li>
