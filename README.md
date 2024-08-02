@@ -36,5 +36,7 @@ Contact: A form where users can reach out with inquiries or feedback.
 Technologies Used React:
 
 A JavaScript library for building user interfaces.
+
 Vite: A fast development build tool for modern web projects.
+
 Templemo: A template provider for the initial design structure.
