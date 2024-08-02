@@ -25,6 +25,8 @@ export default function EditArt() {
   }, [artId]);
 
   const updateArtHandler = async (e) => {
+    e.preventDefault();
+    const values = Object.fromEntries(new FormData(e.currentTarget));
     try {
       await ArtService.edit(artId, values);
       navigate('/shop');
@@ -32,18 +34,22 @@ export default function EditArt() {
       console.error(err);
     }
   };
-
-  const { values, onChange, onSubmit } = useForm(updateArtHandler, art);
+  const onChange = (e) => {
+    setArt(state => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }))
+  }
 
   return (
     <section id="sell-art-page" className="auth">
-      <form id="sell-art" onSubmit={onSubmit}>
+      <form id="sell-art" onSubmit={updateArtHandler}>
         <label htmlFor="title">Art Title:</label>
         <input
           type="text"
           id="title"
           name="title"
-          value={values.title}
+          value={art.title}
           onChange={onChange}
           placeholder="Enter art title..."
           required
@@ -53,7 +59,7 @@ export default function EditArt() {
         <select
           id="category"
           name="category"
-          value={values.category}
+          value={art.category}
           onChange={onChange}
           required
         >
@@ -69,7 +75,7 @@ export default function EditArt() {
           type="number"
           id="price"
           name="price"
-          value={values.price}
+          value={art.price}
           onChange={onChange}
           placeholder="Price in USD"
           required
@@ -80,7 +86,7 @@ export default function EditArt() {
           type="text"
           id="imageUrl"
           name="imageUrl"
-          value={values.imageUrl}
+          value={art.imageUrl}
           onChange={onChange}
           placeholder="Upload a photo..."
         />
@@ -88,7 +94,7 @@ export default function EditArt() {
         <label htmlFor="description">Description:</label>
         <textarea
           name="description"
-          value={values.description}
+          value={art.description}
           onChange={onChange}
           id="description"
           placeholder="Describe your art"
