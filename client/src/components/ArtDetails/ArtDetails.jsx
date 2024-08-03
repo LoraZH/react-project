@@ -63,17 +63,9 @@ export default function ArtDetails() {
                         <div className="card">
                             <div className="card-body">
                                 <h1 className="h2">{art.title}</h1>
-                                <p className="h3 py-2">${art.price}</p>
-                                <ul className="list-inline">
-                                    <li className="list-inline-item">
-                                        <h6>Author: </h6>
-                                    </li>
-                                    <li className="list-inline-item">
-                                        <p className="text-muted">
-                                            <strong>{art.username}</strong>
-                                        </p>
-                                    </li>
-                                </ul>
+                                <h6>Price:</h6>
+                                <p>${art.price}</p>
+                                
                                 <h6>Categories:</h6>
                                 <p>{art.category}</p>
                                 <h6>Description:</h6>
