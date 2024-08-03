@@ -8,14 +8,15 @@ Lora's Art is a user-friendly platform where artists can:
 
 
 Edit or delete their own artworks at any time.
-Purchase artworks from other artists, supporting fellow creators.
+Comment artworks from other artists, supporting fellow creators.
+
 Authenticated users can:
 
 View and add comments to artworks, fostering engagement and discussion within the art community.
 
 Guests can:
 
-View the public pages such as Home, About, Designs, and Contact.
+View the public pages such as Home, About, Art, and Contact.
 Register/Login with an email and password to access more functionality, like commenting on art and managing their own listings.
 Features
 
@@ -41,11 +42,11 @@ A welcome page that showcases featured artworks.
 
 About:
 
-Information about the platform, its purpose, and its creator.
+Information about the platform.
 
 Designs:
 
-A gallery of all available artworks, categorized for easy browsing.
+A gallery of all available artworks.
 
 Contact: 
 
@@ -58,9 +59,11 @@ Technologies Used
 React:
 
 A JavaScript library for building user interfaces.
+
 Vite: 
 
 A fast development build tool for modern web projects.
+
 Templemo: 
 
 A template provider for the initial design structure.
