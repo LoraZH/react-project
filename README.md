@@ -38,12 +38,15 @@ Pages
 Home: 
 
 A welcome page that showcases featured artworks.
+
 About:
 
 Information about the platform, its purpose, and its creator.
+
 Designs:
 
 A gallery of all available artworks, categorized for easy browsing.
+
 Contact: 
 
 A form where users can reach out with inquiries or feedback.
