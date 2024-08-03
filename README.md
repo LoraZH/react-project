@@ -32,11 +32,20 @@ Dynamic Content:
 
 The site dynamically displays content based on user actions and interactions.
 Pages
-Home: A welcome page that showcases featured artworks.
-About: Information about the platform, its purpose, and its creator.
-Designs: A gallery of all available artworks, categorized for easy browsing.
-Contact: A form where users can reach out with inquiries or feedback.
+Home: 
+A welcome page that showcases featured artworks.
+About:
+Information about the platform, its purpose, and its creator.
+Designs:
+A gallery of all available artworks, categorized for easy browsing.
+Contact: 
+A form where users can reach out with inquiries or feedback.
+
+
 Technologies Used
-React: A JavaScript library for building user interfaces.
-Vite: A fast development build tool for modern web projects.
-Templemo: A template provider for the initial design structure.
+React:
+A JavaScript library for building user interfaces.
+Vite: 
+A fast development build tool for modern web projects.
+Templemo: 
+A template provider for the initial design structure.
