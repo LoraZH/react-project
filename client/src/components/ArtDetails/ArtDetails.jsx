@@ -3,16 +3,20 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import * as ArtService from '../../services/ArtServices';
 import AuthContext from "../../contexts/authContext";
 import * as commentService from "../../services/commentService";
+import './ArtDetails.css'; // Import the CSS file
 
 export default function ArtDetails() {
     const { email, userId } = useContext(AuthContext);
     const [art, setArt] = useState({});
+    const [comments, setComments] = useState([]);
+
     const { artId } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
         if (artId) {
             ArtService.getOne(artId).then(setArt);
+            commentService.getAll(artId).then(setComments);
         }
     }, [artId]);
 
@@ -36,7 +40,8 @@ export default function ArtDetails() {
             formData.get('username'),
             formData.get('comment'),
         );
-        console.log('new comment')
+        setComments(state => [...state, newComment])
+        console.log(newComment);
     }
 
     return (
@@ -87,10 +92,24 @@ export default function ArtDetails() {
                                 )}
 
                                 <div className="comment-section">
-                                    <h1>Add Comment</h1>
+                                    <h2 className="add-comment-title">Comments:</h2>
+                                    <div className="comment-list">
+                                        {comments.map(({ _id, username, text }) => (
+                                            <div key={_id}className="comment-item">
+                                                <p className="comment-text">{username}: {text}</p>
+                                            </div>
+                                        ))}
+                                        {comments.length === 0 && (
+                                            <p className="no-comments">No comments yet</p>
+                                        )}
+                                    </div>
+                                </div>
+
+                                <div className="comment-section">
+                                    <h2 className="add-comment-title">Add Comment</h2>
                                     <form className="comment-form" onSubmit={addCommentHandler}>
                                         <div className="form-group">
-                                            <label htmlFor="username">Username:</label>
+                                            <label className="label" htmlFor="username">Username:</label>
                                             <input
                                                 type="text"
                                                 id="username"
@@ -101,12 +120,12 @@ export default function ArtDetails() {
                                             />
                                         </div>
                                         <div className="form-group">
-                                            <label htmlFor="comment">Comment:</label>
+                                            <label className="label" htmlFor="comment">Comment:</label>
                                             <textarea
                                                 id="comment"
                                                 className="form-control"
                                                 name="comment"
-                                                rows="4"
+                                                rows="2"
                                                 placeholder="Enter your comment"
                                                 required
                                             />
@@ -116,6 +135,7 @@ export default function ArtDetails() {
                                         </button>
                                     </form>
                                 </div>
+
                             </div>
                         </div>
                     </div>

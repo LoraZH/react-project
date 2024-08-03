@@ -8,7 +8,7 @@ export const getAll = async (artId) => {
  });
  const result = await request.get(`${baseUrl}`);
 
- return result.filter(comment => comment.artId === artId); 
+ return Object.values(result).filter(comment => comment.artId === artId); 
 };
 
 export const create = async (artId, username, text) => {
