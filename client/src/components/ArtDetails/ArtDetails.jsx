@@ -50,7 +50,7 @@ export default function ArtDetails() {
                                 <p className="h3 py-2">${art.price}</p>
                                 <ul className="list-inline">
                                     <li className="list-inline-item">
-                                        <h6>Author:</h6>
+                                        <h6>Author: </h6>
                                     </li>
                                     <li className="list-inline-item">
                                         <p className="text-muted">
@@ -76,38 +76,7 @@ export default function ArtDetails() {
                                     </div>
                                 )}
 
-                                {!isOwner && (
-                                    <form action="" method="GET">
-                                        <input
-                                            type="hidden"
-                                            name="product-title"
-                                            defaultValue="Activewear"
-                                        />
-                                        <div className="row pb-3">
-                                            <div className="col d-grid">
-                                                <button
-                                                    type="submit"
-                                                    className="btn btn-success btn-lg"
-                                                    name="submit"
-                                                    value="buy"
-                                                >
-                                                    Buy
-                                                </button>
-                                            </div>
-                                            <div className="col d-grid">
-                                                <button
-                                                    type="submit"
-                                                    className="btn btn-success btn-lg"
-                                                    name="submit"
-                                                    value="addtocart"
-                                                >
-                                                    Add To Cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                )}
-
+                               
                             </div>
                         </div>
                     </div>

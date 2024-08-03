@@ -14,15 +14,12 @@ import Profile from './components/Profile/Profile'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
 import ArtDetails from './components/ArtDetails/ArtDetails'
-import Cart from './components/Cart/Cart'
 import NotFound from './components/NotFound/NotFound'
 import Path from './paths'
 import Logout from './components/Logout/Logout'
 import EditArt from './components/ShopArt/ShopArtItem/EditArt'
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary'
 import AuthGuard from './guards/AuthGuard'
-import { useState } from 'react'
-
 
 
 export default function App() {
@@ -41,7 +38,6 @@ export default function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/art/:artId' element={<ArtDetails />} />
-          <Route path='/cart' element={<Cart />} />
           <Route path={Path.Logout} element={< Logout />} />
           <Route path='*' element={<NotFound />} />
 
