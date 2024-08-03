@@ -6,7 +6,7 @@ import * as commentService from "../../services/commentService";
 import './ArtDetails.css'; 
 
 export default function ArtDetails() {
-    const { email, userId } = useContext(AuthContext);
+    const { email, userId, isAuthenticated } = useContext(AuthContext);
     const [art, setArt] = useState({});
     const [comments, setComments] = useState([]);
 
@@ -40,9 +40,7 @@ export default function ArtDetails() {
             formData.get('comment'),
         );
 
-
-        setComments(state => [...state, {...newComment, owner: {email: email}}])
-        
+        setComments(state => [...state, { ...newComment, owner: { email } }]);
     }
 
     return (
@@ -87,37 +85,42 @@ export default function ArtDetails() {
                                 <div className="comment-section">
                                     <h2 className="add-comment-title">Comments:</h2>
                                     <div className="comment-list">
-                                        {comments.map(({ _id, text, owner: {email} }) => (
-                                            <div key={_id}className="comment-item">
-                                                <p className="comment-text">{email}: {text}</p>
-                                            </div>
-                                        ))}
-                                        {comments.length === 0 && (
-                                            <p className="no-comments">No comments yet</p>
+                                        {isAuthenticated ? (
+                                            comments.length > 0 ? (
+                                                comments.map(({ _id, text, owner: { email } }) => (
+                                                    <div key={_id} className="comment-item">
+                                                        <p className="comment-text">{email}: {text}</p>
+                                                    </div>
+                                                ))
+                                            ) : (
+                                                <p className="no-comments">No comments yet</p>
+                                            )
+                                        ) : (
+                                            <p className="no-comments">Please log in to see comments.</p>
                                         )}
                                     </div>
                                 </div>
 
-                                <div className="comment-section">
-                                    <h2 className="add-comment-title">Add Comment</h2>
-                                    <form className="comment-form" onSubmit={addCommentHandler}>
-                                       
-                                        <div className="form-group">
-                                            
-                                            <textarea
-                                                id="comment"
-                                                className="form-control"
-                                                name="comment"
-                                                rows="2"
-                                                placeholder="Enter your comment"
-                                                required
-                                            />
-                                        </div>
-                                        <button type="submit" className="add-comment-button">
-                                            Add Comment
-                                        </button>
-                                    </form>
-                                </div>
+                                {isAuthenticated && (
+                                    <div className="comment-section">
+                                        <h2 className="add-comment-title">Add Comment</h2>
+                                        <form className="comment-form" onSubmit={addCommentHandler}>
+                                            <div className="form-group">
+                                                <textarea
+                                                    id="comment"
+                                                    className="form-control"
+                                                    name="comment"
+                                                    rows="2"
+                                                    placeholder="Enter your comment"
+                                                    required
+                                                />
+                                            </div>
+                                            <button type="submit" className="add-comment-button">
+                                                Add Comment
+                                            </button>
+                                        </form>
+                                    </div>
+                                )}
 
                             </div>
                         </div>
