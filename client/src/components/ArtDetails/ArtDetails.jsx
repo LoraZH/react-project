@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import * as ArtService from '../../services/ArtServices';
 import AuthContext from "../../contexts/authContext";
 import * as commentService from "../../services/commentService";
-import './ArtDetails.css'; // Import the CSS file
+import './ArtDetails.css'; 
 
 export default function ArtDetails() {
     const { email, userId } = useContext(AuthContext);
@@ -37,11 +37,12 @@ export default function ArtDetails() {
 
         const newComment = await commentService.create(
             artId,
-            formData.get('username'),
             formData.get('comment'),
         );
-        setComments(state => [...state, newComment])
-        console.log(newComment);
+
+
+        setComments(state => [...state, {...newComment, owner: {email: email}}])
+        
     }
 
     return (
@@ -94,9 +95,9 @@ export default function ArtDetails() {
                                 <div className="comment-section">
                                     <h2 className="add-comment-title">Comments:</h2>
                                     <div className="comment-list">
-                                        {comments.map(({ _id, username, text }) => (
+                                        {comments.map(({ _id, text, owner: {email} }) => (
                                             <div key={_id}className="comment-item">
-                                                <p className="comment-text">{username}: {text}</p>
+                                                <p className="comment-text">{email}: {text}</p>
                                             </div>
                                         ))}
                                         {comments.length === 0 && (
@@ -108,19 +109,9 @@ export default function ArtDetails() {
                                 <div className="comment-section">
                                     <h2 className="add-comment-title">Add Comment</h2>
                                     <form className="comment-form" onSubmit={addCommentHandler}>
+                                       
                                         <div className="form-group">
-                                            <label className="label" htmlFor="username">Username:</label>
-                                            <input
-                                                type="text"
-                                                id="username"
-                                                className="form-control"
-                                                name="username"
-                                                placeholder="Enter your username"
-                                                required
-                                            />
-                                        </div>
-                                        <div className="form-group">
-                                            <label className="label" htmlFor="comment">Comment:</label>
+                                            
                                             <textarea
                                                 id="comment"
                                                 className="form-control"

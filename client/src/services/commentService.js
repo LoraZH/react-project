@@ -4,17 +4,17 @@ const baseUrl = 'http://localhost:3030/data/comments'
 
 export const getAll = async (artId) => {
  const query = new URLSearchParams({
-    where: `artId="${artId}"`
+    where: `artId="${artId}"`,
+    load:`owner=_ownerId:users`
  });
  const result = await request.get(`${baseUrl}?${query}`);
 
  return result; 
 };
 
-export const create = async (artId, username, text) => {
+export const create = async (artId, text) => {
     const newComment = await request.post(baseUrl, {
         artId,
-        username,
         text
     });
     return newComment;
