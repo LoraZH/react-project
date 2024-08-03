@@ -1,10 +1,10 @@
-Lora's Art Store
+Lora's Art 
 
-Welcome to Lora's Art Store, a Single Page Application (SPA) designed to be a vibrant online blog for art lovers and artists alike. This platform allows users to showcase their artistic creations.
+Welcome to Lora's Art , a Single Page Application (SPA) designed to be a vibrant online blog for art lovers and artists alike. This platform allows users to showcase their artistic creations.
 
 Project Overview
 
-Lora's Art Store is a user-friendly platform where artists can:
+Lora's Art is a user-friendly platform where artists can:
 
 
 Edit or delete their own artworks at any time.
