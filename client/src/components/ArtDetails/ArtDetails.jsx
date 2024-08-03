@@ -1,10 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import * as ArtService from '../../services/ArtServices';
 import AuthContext from "../../contexts/authContext";
-import { pathToUrl } from "../../utils/pathUtils";
-import Path from "../../paths";
+import * as commentService from "../../services/commentService";
 
 export default function ArtDetails() {
     const { email, userId } = useContext(AuthContext);
@@ -28,6 +26,18 @@ export default function ArtDetails() {
             navigate('/shop');
         }
     };
+
+    const addCommentHandler = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+
+        const newComment = await commentService.create(
+            artId,
+            formData.get('username'),
+            formData.get('comment'),
+        );
+        console.log('new comment')
+    }
 
     return (
         <section className="bg-light">
@@ -66,7 +76,7 @@ export default function ArtDetails() {
                                 {isOwner && (
                                     <div className="row pb-3">
                                         <div className="col d-grid">
-                                            <Link to={pathToUrl(Path.EditArt, { artId })} className="btn btn-success btn-lg same-size-button">
+                                            <Link to={`/edit-art/${artId}`} className="btn btn-success btn-lg same-size-button">
                                                 Edit
                                             </Link>
                                         </div>
@@ -76,7 +86,36 @@ export default function ArtDetails() {
                                     </div>
                                 )}
 
-                               
+                                <div className="comment-section">
+                                    <h1>Add Comment</h1>
+                                    <form className="comment-form" onSubmit={addCommentHandler}>
+                                        <div className="form-group">
+                                            <label htmlFor="username">Username:</label>
+                                            <input
+                                                type="text"
+                                                id="username"
+                                                className="form-control"
+                                                name="username"
+                                                placeholder="Enter your username"
+                                                required
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label htmlFor="comment">Comment:</label>
+                                            <textarea
+                                                id="comment"
+                                                className="form-control"
+                                                name="comment"
+                                                rows="4"
+                                                placeholder="Enter your comment"
+                                                required
+                                            />
+                                        </div>
+                                        <button type="submit" className="add-comment-button">
+                                            Add Comment
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
